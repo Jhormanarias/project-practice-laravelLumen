@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0",
         "cviebrock/eloquent-sluggable": "^9.0",
+        "flipbox/lumen-generator": "^9.0",
         "laravel/lumen-framework": "^9.0"
     },
     "require-dev": {
