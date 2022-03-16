@@ -21,6 +21,13 @@ class CommentController extends ResourceController
         //
     }
 
+    public function index()
+    {
+        $datos = $this->model::all()->whereNull('comment_id');
+
+        return response()->json($datos);
+    }
+
     /* public function show($id)
     {
 

@@ -15,9 +15,9 @@ abstract class ResourceController extends Controller
      */
     public function index()
     {
-        $datos = $this->model::all();
+        /* $datos = $this->model::all()->whereNull('comment_id');
 
-        return response()->json($datos);
+        return response()->json($datos); */
     }
 
 
