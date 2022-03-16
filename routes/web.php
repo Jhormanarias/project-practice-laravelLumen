@@ -16,3 +16,24 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get("/post/{id}", "PostController@show");
+$router->get("/comment/{id}", "CommentController@show");
+$router->get("/allcomments", "CommentController@index");
+
+
+/* function resource($prefix, $controller, $router)
+{
+    $router->group(["prefix" => $prefix], function ($router) use ($controller) {
+        $router->get("/", $controller . "Controller@index");
+        $router->post("/", $controller . "Controller@store");
+        $router->get("/{id}", $controller . "Controller@show");
+        $router->put("/{model_id}", $controller . "Controller@update");
+        $router->post("/{model_id}", $controller . "Controller@update");
+        $router->patch("/{model_id}", $controller . "Controller@update");
+        $router->delete("/{model_id}", $controller . "Controller@delete");
+    });
+}
+
+resource("post", "Post", $router); */
+

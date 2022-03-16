@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-class ExampleController extends Controller
+use App\Http\Controllers\ResourceController;
+use App\Models\Post;
+
+class PostController extends ResourceController
 {
+    protected $model = Post::class;
+
+
     /**
      * Create a new controller instance.
      *
@@ -13,6 +19,8 @@ class ExampleController extends Controller
     {
         //
     }
+
+    
 
     //
 }
