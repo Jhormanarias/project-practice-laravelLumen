@@ -9,6 +9,10 @@ class Post extends Model
     protected $table = 'post';
 
     protected $fillable = ['user_id','title','body'];
+
+    /* protected $with = ['comentarios']; */
     
-    /* protected $hidden = [];  */
+    public function comentarios(){
+        return $this->hasMany(Comment::class, 'post_id')->whereNull('comment_id');
+    }
 }

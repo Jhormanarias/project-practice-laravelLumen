@@ -20,7 +20,11 @@ class PostController extends ResourceController
         //
     }
 
-    
+    public function index()
+    {
+
+        return $this->model::all()->load('comentarios');
+    }
 
     //
 }

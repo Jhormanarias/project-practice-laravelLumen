@@ -17,6 +17,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get("/allposts", "PostController@index");
 $router->get("/post/{id}", "PostController@show");
 $router->get("/comment/{id}", "CommentController@show");
 $router->get("/allcomments", "CommentController@index");
