@@ -33,7 +33,9 @@ abstract class ResourceController extends Controller
 
         $comentario = new Comment;
 
+        $comentario->id=$request->id;
         $comentario->comment=$request->comment;
+        $comentario->comment_id=$request->comment_id;
         $comentario->post_id=$request->post_id;
         $comentario->user_id=$request->user_id;
 

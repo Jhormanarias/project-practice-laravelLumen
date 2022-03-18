@@ -29,6 +29,20 @@ class CommentController extends ResourceController
     }
 
     
+    /* public function guardar($request)
+    {
+
+        $comentario = new Comment;
+
+        $comentario->comment=$request->comment;
+        $comentario->post_id=$request->post_id;
+        $comentario->user_id=$request->user_id;
+
+        $comentario->save();
+
+
+        return response()->json($request);
+    } */
 
     /* public function show($id)
     {
