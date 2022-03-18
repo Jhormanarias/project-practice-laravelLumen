@@ -28,6 +28,8 @@ class CommentController extends ResourceController
         return response()->json($datos);
     }
 
+    
+
     /* public function show($id)
     {
 

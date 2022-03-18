@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,17 @@ abstract class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $comentario = new Comment;
+
+        $comentario->comment=$request->comment;
+        $comentario->post_id=$request->post_id;
+        $comentario->user_id=$request->user_id;
+
+        $comentario->save();
+
+
+        return response()->json($request);
     }
 
     /**
