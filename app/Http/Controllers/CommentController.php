@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\ResourceController;
 use App\Models\Comment;
-use App\Models\Post;
+use Illuminate\Http\Request;
 
 class CommentController extends ResourceController
 {
@@ -29,12 +29,14 @@ class CommentController extends ResourceController
     }
 
     
-    /* public function guardar($request)
+    /* public function store(Request $request)
     {
 
         $comentario = new Comment;
 
+        $comentario->id=$request->id;
         $comentario->comment=$request->comment;
+        $comentario->comment_id=$request->comment_id;
         $comentario->post_id=$request->post_id;
         $comentario->user_id=$request->user_id;
 

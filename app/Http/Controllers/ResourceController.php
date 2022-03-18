@@ -31,18 +31,10 @@ abstract class ResourceController extends Controller
     public function store(Request $request)
     {
 
-        $comentario = new Comment;
+        $model = new $this->model($request->all());
+        $model->save();
 
-        $comentario->id=$request->id;
-        $comentario->comment=$request->comment;
-        $comentario->comment_id=$request->comment_id;
-        $comentario->post_id=$request->post_id;
-        $comentario->user_id=$request->user_id;
-
-        $comentario->save();
-
-
-        return response()->json($request);
+        return $model;
     }
 
     /**
