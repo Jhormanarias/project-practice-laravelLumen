@@ -19,6 +19,7 @@ $router->get('/', function () use ($router) {
 
 $router->get("/allposts", "PostController@index");
 $router->get("/post/{id}", "PostController@show");
+$router->post("/createpost", "PostController@store");
 $router->get("/comment/{id}", "CommentController@show");
 $router->get("/allcomments", "CommentController@index");
 $router->post("/createcomment", "CommentController@store");
