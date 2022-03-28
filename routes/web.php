@@ -22,7 +22,7 @@ $router->get("/post/{id}", "PostController@show");
 $router->get("/comment/{id}", "CommentController@show");
 $router->get("/allcomments", "CommentController@index");
 $router->post("/createcomment", "CommentController@store");
-$router->delete("/deletecomment/{id}", "CommentController@softDelete");
+$router->delete("/deletecomment/{id}", "CommentController@delete");
 
 /* function resource($prefix, $controller, $router)
 {

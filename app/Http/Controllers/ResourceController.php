@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Exception;
 
 abstract class ResourceController extends Controller
 {
@@ -30,11 +31,23 @@ abstract class ResourceController extends Controller
      */
     public function store(Request $request)
     {
-
-        $model = new $this->model($request->all());
-        $model->save();
+        try{
+            $model = new $this->model($request->all());
+            $this->validate($request, [
+                'id' => 'numeric'
+            ]);
+            $model->save();
 
         return $model;
+        }
+        catch(\Exception $e){
+            return response()->json(
+                [
+                    'message' => $e,
+                ],
+                422
+            );
+        }
     }
 
     /**
@@ -71,13 +84,41 @@ abstract class ResourceController extends Controller
      */
     public function delete($id)
     {
-        $data = $this->model::find($id);
-        $data->delete();
+        try{
+            $data = $this->model::find($id);
+            $data->delete();
 
-        return response('', 204);
+            return response()->json(
+                [
+                    'message' => $data,
+                ],
+                200
+            );
+            /* return response('', 204); */
+        }
+        catch(\Exception $e)
+        {
+            return response()->json(
+                [
+                    'message' => $e,
+                ],
+                409
+            );
+        }
+        
     }
 
-    public function softDelete($id)
+
+    /* return response()->json(
+        [
+            'message' => $e,
+        ],
+        409
+    );
+ */
+
+
+    /* public function softDelete($id)
     {
 
         $data = $this->model::destroy($id);
@@ -89,5 +130,5 @@ abstract class ResourceController extends Controller
 
         }
         return response($response);
-    }
+    } */
 }
