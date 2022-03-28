@@ -71,6 +71,23 @@ abstract class ResourceController extends Controller
      */
     public function delete($id)
     {
-        //
+        $data = $this->model::find($id);
+        $data->delete();
+
+        return response('', 204);
+    }
+
+    public function softDelete($id)
+    {
+
+        $data = $this->model::destroy($id);
+        if ($data) {
+            $response = 'Successfully deleted';
+        } else {
+
+            $response = 'Error deleted';
+
+        }
+        return response($response);
     }
 }

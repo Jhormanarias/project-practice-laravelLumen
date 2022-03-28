@@ -21,7 +21,9 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('post');
             $table->foreign('user_id')->references('id')->on('user');
+            $table->softDeletes();
             $table->timestamps();
+            
         });
     }
 
