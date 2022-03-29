@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\ResourceController;
 use App\Models\Post;
+use Illuminate\Http\Request;
+
 
 class PostController extends ResourceController
 {
@@ -26,5 +28,13 @@ class PostController extends ResourceController
         return $this->model::all()->load('comentarios');
     }
 
-    //
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'title' => 'required|unique:post|max:255',
+            'body' => 'required',
+        ]);
+
+        return parent::store($request);
+    }
 }
