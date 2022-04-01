@@ -90,7 +90,8 @@ abstract class ResourceController extends Controller
 
             return response()->json(
                 [
-                    'message' => $data,
+                    'message' => '$Dato eliminado',
+                    'message' => $data
                 ],
                 200
             );
