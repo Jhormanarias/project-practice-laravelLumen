@@ -18,9 +18,9 @@ return new class extends Migration
             $table->text('comment');
             $table->bigInteger('comment_id')->nullable();
             $table->bigInteger('post_id')->unsigned();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('users_id')->unsigned();
             $table->foreign('post_id')->references('id')->on('post');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
             

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('users_id')->unsigned();
             $table->string('title',200);
             $table->text('body');
-            $table->foreign('user_id')->references('id')->on('user');
+            $table->foreign('users_id')->references('id')->on('users');
             $table->softDeletes();
             $table->timestamps();
         });

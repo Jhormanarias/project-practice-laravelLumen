@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $table = 'post';
 
-    protected $fillable = ['user_id','title','body'];
+    protected $fillable = ['users_id','title','body'];
 
     /* protected $with = ['comentarios']; */
     
